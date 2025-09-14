@@ -20,13 +20,4 @@ This feature involves creating a minimal Express.js server using TypeScript and 
 6. WHEN any S3 error occurs THEN the system SHALL log the error details for debugging purposes
 7. WHEN the response is sent THEN the system SHALL include appropriate content-type headers for text files
 
-### Requirement 2
 
-**User Story:** As a system administrator, I want the server to be configurable through environment variables, so that I can deploy it in different environments without code changes.
-
-#### Acceptance Criteria
-
-1. WHEN the server starts THEN the system SHALL read S3 configuration from environment variables
-2. WHEN environment variables are missing THEN the system SHALL fail to start with a clear error message
-3. WHEN the server port is specified via environment variable THEN the system SHALL use that port
-4. WHEN no port is specified THEN the system SHALL default to port 3000

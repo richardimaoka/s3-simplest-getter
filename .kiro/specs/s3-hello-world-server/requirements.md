@@ -14,21 +14,13 @@ This feature involves creating a minimal Express.js server using TypeScript and 
 
 1. WHEN a client makes a GET request to the designated endpoint THEN the system SHALL return the "hello world" text file content from S3
 2. WHEN the S3 file is successfully retrieved THEN the system SHALL return HTTP status 200 with the file content
-3. WHEN the S3 file cannot be retrieved THEN the system SHALL return an appropriate error status code
-4. WHEN the response is sent THEN the system SHALL include appropriate content-type headers for text files
+3. WHEN S3 is unavailable THEN the system SHALL return HTTP status 503 with an appropriate error message
+4. WHEN the requested file doesn't exist in S3 THEN the system SHALL return HTTP status 404 with an appropriate error message
+5. WHEN S3 authentication fails THEN the system SHALL return HTTP status 500 with a generic error message
+6. WHEN any S3 error occurs THEN the system SHALL log the error details for debugging purposes
+7. WHEN the response is sent THEN the system SHALL include appropriate content-type headers for text files
 
 ### Requirement 2
-
-**User Story:** As a developer, I want the server to handle S3 connection errors gracefully, so that the application provides meaningful feedback when issues occur.
-
-#### Acceptance Criteria
-
-1. WHEN S3 is unavailable THEN the system SHALL return HTTP status 503 with an appropriate error message
-2. WHEN the requested file doesn't exist in S3 THEN the system SHALL return HTTP status 404 with an appropriate error message
-3. WHEN S3 authentication fails THEN the system SHALL return HTTP status 500 with a generic error message
-4. WHEN any S3 error occurs THEN the system SHALL log the error details for debugging purposes
-
-### Requirement 3
 
 **User Story:** As a system administrator, I want the server to be configurable through environment variables, so that I can deploy it in different environments without code changes.
 

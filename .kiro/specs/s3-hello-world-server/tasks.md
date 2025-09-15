@@ -2,7 +2,6 @@
 
 - [x] 1. Set up project structure and TypeScript configuration
 
-
   - Create package.json with ESM configuration and required dependencies using pnpm
   - Set up TypeScript configuration for ESM and Node.js target
   - Create directory structure (src/, tests/, dist/)
@@ -19,10 +18,6 @@
 
 - [x] 2.2 Implement configuration interface and validation logic
 
-
-
-
-
   - Create configuration interface based on test requirements
   - Implement environment variable parsing with defaults
   - Add configuration validation with clear error messages
@@ -32,18 +27,12 @@
 - [ ] 3. Implement S3 service layer (TDD approach)
 - [x] 3.1 Write unit tests for S3Service class
 
-
-
-
   - Create test cases for getHelloWorldFile method with mocked AWS SDK
   - Test proper error handling and HTTP status code mapping (404, 503, 500)
   - Test comprehensive error logging scenarios
   - _Requirements: 1.1, 1.3, 1.4, 1.5, 1.6_
 
 - [x] 3.2 Implement S3Service class
-
-
-
 
   - Create S3Service class with AWS SDK v3 client based on test requirements
   - Implement getHelloWorldFile method with proper error handling
@@ -52,15 +41,23 @@
   - Ensure all tests pass
   - _Requirements: 1.1, 1.3, 1.4, 1.5, 1.6_
 
-- [ ] 4. Create Express application with security middleware (TDD approach)
-- [ ] 4.1 Write unit tests for Express route handlers
+- [ ] 4. Create manual verification guide for real S3 testing
+
+  - Create README.md with S3 setup instructions
+  - Document environment variable configuration
+  - Provide step-by-step manual testing procedures
+  - Include troubleshooting guide for common S3 issues
+  - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6_
+
+- [ ] 5. Create Express application with security middleware (TDD approach)
+- [ ] 5.1 Write unit tests for Express route handlers
 
   - Create test cases for GET route handler that calls S3 service
   - Test proper content-type headers for text responses
   - Test centralized error handling middleware
   - _Requirements: 1.1, 1.2, 1.7_
 
-- [ ] 4.2 Implement Express application
+- [ ] 5.2 Implement Express application
 
   - Set up Express app with helmet middleware for basic security headers
   - Implement single GET route handler that calls S3 service based on tests
@@ -69,15 +66,15 @@
   - Ensure all tests pass
   - _Requirements: 1.1, 1.2, 1.7_
 
-- [ ] 5. Implement main server entry point (TDD approach)
-- [ ] 5.1 Write unit tests for server startup logic
+- [ ] 6. Implement main server entry point (TDD approach)
+- [ ] 6.1 Write unit tests for server startup logic
 
   - Create test cases for server startup with configuration loading
   - Test graceful error handling for startup failures
   - Test server listening with configurable port
   - _Requirements: 1.1_
 
-- [ ] 5.2 Implement server entry point
+- [ ] 6.2 Implement server entry point
 
   - Create server startup logic with configuration loading based on tests
   - Add graceful error handling for startup failures
@@ -86,7 +83,7 @@
   - Ensure all tests pass
   - _Requirements: 1.1_
 
-- [ ] 6. Write integration tests
+- [ ] 7. Write integration tests
 
   - Create integration tests for complete request flow
   - Test all error scenarios (S3 unavailable, file not found, auth failures)
@@ -94,7 +91,7 @@
   - Test end-to-end functionality with real HTTP requests
   - _Requirements: 1.3, 1.4, 1.5, 1.6_
 
-- [ ] 7. Add development and build tooling
+- [ ] 8. Add development and build tooling
   - Configure nodemon for development with TypeScript support
   - Set up build process to compile TypeScript to JavaScript
   - Create pnpm scripts for development, build, and production start

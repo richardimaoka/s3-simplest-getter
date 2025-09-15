@@ -131,16 +131,27 @@ interface ErrorHandler {
 
 ## Testing Strategy
 
-### Unit Tests
+### Test-Driven Development (TDD) Approach
 
-- **S3 Service**: Mock AWS SDK calls to test error handling and success scenarios
-- **Configuration**: Test environment variable parsing and validation
-- **Route Handlers**: Test HTTP responses for various scenarios
+This project follows a strict test-first development methodology:
+
+1. **Write Tests First**: For each component, write initial unit tests before implementing the actual code
+2. **Red-Green-Refactor**: Follow the TDD cycle of writing failing tests, making them pass, then refactoring
+3. **Continuous Testing**: Keep tests updated as code evolves and run tests frequently during development
+4. **Test Coverage**: Ensure all critical paths, error scenarios, and edge cases are covered
+
+### Unit Tests (Written Before Implementation)
+
+- **Configuration Module**: Test environment variable parsing, validation, and error handling before implementing config logic
+- **S3 Service**: Mock AWS SDK calls and test all error scenarios before implementing the service
+- **Route Handlers**: Test HTTP responses, error handling, and middleware integration before implementing routes
+- **Server Startup**: Test configuration loading and server initialization before implementing main entry point
 
 ### Integration Tests
 
 - **End-to-End**: Test complete request flow with mocked S3 responses
 - **Error Scenarios**: Test all error conditions and appropriate HTTP status codes
+- **Real HTTP Requests**: Verify the entire application stack works together
 
 ### Test Structure
 

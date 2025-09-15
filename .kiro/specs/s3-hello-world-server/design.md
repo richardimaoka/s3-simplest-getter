@@ -28,9 +28,11 @@ graph TD
 ## Components and Interfaces
 
 ### 1. Server Configuration
+
 - **File**: `src/config/index.ts`
 - **Purpose**: Centralized configuration management using environment variables
 - **Interface**:
+
 ```typescript
 interface ServerConfig {
   port: number;
@@ -43,9 +45,11 @@ interface ServerConfig {
 ```
 
 ### 2. S3 Service
+
 - **File**: `src/services/s3Service.ts`
 - **Purpose**: Handles S3 file retrieval operations
 - **Interface**:
+
 ```typescript
 interface S3Service {
   getHelloWorldFile(): Promise<string>;
@@ -53,6 +57,7 @@ interface S3Service {
 ```
 
 ### 3. Express Application
+
 - **File**: `src/app.ts`
 - **Purpose**: Express server setup with middleware and routing
 - **Components**:
@@ -61,12 +66,14 @@ interface S3Service {
   - Error handling middleware
 
 ### 4. Main Entry Point
+
 - **File**: `src/index.ts`
 - **Purpose**: Application bootstrap and server startup
 
 ## Data Models
 
 ### Configuration Model
+
 ```typescript
 interface Config {
   port: number;
@@ -81,6 +88,7 @@ interface Config {
 ```
 
 ### Error Response Model
+
 ```typescript
 interface ErrorResponse {
   error: string;
@@ -94,10 +102,12 @@ interface ErrorResponse {
 ### Error Categories and HTTP Status Codes
 
 1. **File Not Found (404)**
+
    - S3 object does not exist
    - Bucket does not exist
 
 2. **Service Unavailable (503)**
+
    - S3 service is down
    - Network connectivity issues
 
@@ -122,15 +132,18 @@ interface ErrorHandler {
 ## Testing Strategy
 
 ### Unit Tests
+
 - **S3 Service**: Mock AWS SDK calls to test error handling and success scenarios
 - **Configuration**: Test environment variable parsing and validation
 - **Route Handlers**: Test HTTP responses for various scenarios
 
 ### Integration Tests
+
 - **End-to-End**: Test complete request flow with mocked S3 responses
 - **Error Scenarios**: Test all error conditions and appropriate HTTP status codes
 
 ### Test Structure
+
 ```
 tests/
 ├── unit/
@@ -146,16 +159,18 @@ tests/
 ## Dependencies
 
 ### Production Dependencies
+
 - `express`: Web framework
 - `helmet`: Security middleware
 - `@aws-sdk/client-s3`: AWS S3 client (v3)
 - `dotenv`: Environment variable loading
 
 ### Development Dependencies
+
 - `typescript`: TypeScript compiler
 - `@types/express`: Express type definitions
 - `@types/node`: Node.js type definitions
-- `jest`: Testing framework
+- `vitest`: Testing framework
 - `supertest`: HTTP testing
 - `ts-node`: TypeScript execution
 - `nodemon`: Development server

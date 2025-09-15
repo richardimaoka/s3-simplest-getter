@@ -13,7 +13,7 @@ export function loadConfig(): ServerConfig {
   let port = 8080; // default port
 
   if (portStr) {
-    const parsedPort = parseInt(portStr, 10);
+    const parsedPort = Number(portStr);
     if (isNaN(parsedPort)) {
       throw new Error("PORT must be a valid number");
     }

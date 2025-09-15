@@ -154,6 +154,17 @@ describe("Configuration Management", () => {
       );
     });
 
+    it("should throw error when PORT contains non-numeric characters after numbers", () => {
+      // Arrange
+      process.env.PORT = "3000a";
+      process.env.AWS_REGION = "us-east-1";
+      process.env.S3_BUCKET_NAME = "my-test-bucket";
+      process.env.S3_FILE_NAME = "hello-world.txt";
+
+      // Act & Assert
+      expect(() => loadConfig()).toThrow("PORT must be a valid number");
+    });
+
     it("should handle different AWS regions correctly", () => {
       // Arrange
       const regions = ["us-west-2", "eu-west-1", "ap-southeast-1"];

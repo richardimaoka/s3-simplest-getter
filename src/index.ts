@@ -1,5 +1,5 @@
-import { S3Service } from "./services/s3Service.js";
-import { loadConfig } from "./config/index.js";
+import { S3Service } from "./services/s3Service.ts";
+import { loadConfig } from "./config/index.ts";
 import dotenv from "dotenv";
 
 dotenv.config();

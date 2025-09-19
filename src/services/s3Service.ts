@@ -1,5 +1,5 @@
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
-import { ServerConfig } from "../config/index.js";
+import type { ServerConfig } from "../config/index.ts";
 
 // Custom error classes for different S3 error scenarios
 export class S3FileNotFoundError extends Error {
